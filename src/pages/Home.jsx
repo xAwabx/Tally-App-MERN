@@ -52,14 +52,16 @@ export default function Home() {
       async function fetchdata() {
         try {
           const response = await axios.post(
-            "http://localhost:4000/createuser",
+            "https://fair-red-goshawk-gown.cyclic.app/createuser",
             data
           );
           console.log(response.data);
-          const response1 = await axios.get("http://localhost:4000/getuser", {
-            params: { userId: user.uid },
-          });
-          // console.log(response1.data);
+          const response1 = await axios.get(
+            "https://fair-red-goshawk-gown.cyclic.app/getuser",
+            {
+              params: { userId: user.uid },
+            }
+          );
           setUserData(response1.data);
         } catch (error) {
           console.log("ERROR CREATING USER: ", error);

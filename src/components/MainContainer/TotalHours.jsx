@@ -20,9 +20,12 @@ export const TotalHours = ({ totalHours, userId }) => {
 
   async function fetchUser() {
     try {
-      const response = await axios.get("http://localhost:4000/getuser", {
-        params: { userId: userId },
-      });
+      const response = await axios.get(
+        "https://fair-red-goshawk-gown.cyclic.app/getuser",
+        {
+          params: { userId: userId },
+        }
+      );
       setUserData(response.data);
     } catch (error) {
       console.log("ERROR WHILE FETCHING USER", error);

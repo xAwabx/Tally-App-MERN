@@ -25,10 +25,14 @@ export const Currentmembers = ({
 
   async function fetchUser() {
     try {
-      const response = await axios.get("http://localhost:4000/getuser", {
-        params: { userId: userId },
-      });
-      // console.log("data ID: ", userId);
+      const response = await axios.get(
+        "https://fair-red-goshawk-gown.cyclic.app/getuser",
+        {
+          params: { userId: userId },
+        }
+      );
+      console.log("----------------------");
+      console.log(response.data.pfp);
       // console.log("response ID: ", response.data.userId);
 
       setUser(response.data);

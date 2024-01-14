@@ -34,18 +34,24 @@ export const Maincontainer = ({ userData }) => {
   const [loading, setLoading] = useState(false);
 
   async function fetchCurrentGroupData() {
-    const response = await axios.get("http://localhost:4000/getgroup", {
-      params: { groupId: currentGroupId },
-    });
+    const response = await axios.get(
+      "https://fair-red-goshawk-gown.cyclic.app/getgroup",
+      {
+        params: { groupId: currentGroupId },
+      }
+    );
     // console.log(response.data);
     setCurrentGroupData(response.data);
   }
 
   async function fetchAllGroupData() {
     groupIds.forEach(async (groupId) => {
-      const response = await axios.get("http://localhost:4000/getgroup", {
-        params: { groupId: groupId },
-      });
+      const response = await axios.get(
+        "https://fair-red-goshawk-gown.cyclic.app/getgroup",
+        {
+          params: { groupId: groupId },
+        }
+      );
       setAllGroups((prev) => {
         return [...prev, response.data];
       });
@@ -64,7 +70,7 @@ export const Maincontainer = ({ userData }) => {
     // console.log(groupFormData);
     try {
       const response = await axios.post(
-        "http://localhost:4000/creategroup",
+        "https://fair-red-goshawk-gown.cyclic.app/creategroup",
         groupFormData
       );
       // console.log(response.data);
@@ -87,7 +93,7 @@ export const Maincontainer = ({ userData }) => {
     console.log(entryFormData);
     try {
       const response = await axios.post(
-        "http://localhost:4000/addentry",
+        "https://fair-red-goshawk-gown.cyclic.app/addentry",
         entryFormData
       );
       // console.log(response.data);
@@ -113,7 +119,10 @@ export const Maincontainer = ({ userData }) => {
     // console.log(obj);
     if (obj.email != "") {
       try {
-        const response = await axios.post("http://localhost:4000/adduser", obj);
+        const response = await axios.post(
+          "https://fair-red-goshawk-gown.cyclic.app/adduser",
+          obj
+        );
         if (response.data) {
           // console.log("RESPONSE ADDUSER: ", response.data);
           setUserAddData({
@@ -144,7 +153,7 @@ export const Maincontainer = ({ userData }) => {
     };
     try {
       const response = await axios.post(
-        "http://localhost:4000/deletegroup",
+        "https://fair-red-goshawk-gown.cyclic.app/deletegroup",
         data
       );
       // console.log("DELETE DATA: ", response.data);
@@ -169,7 +178,7 @@ export const Maincontainer = ({ userData }) => {
     console.log(data);
     try {
       const response = await axios.post(
-        "http://localhost:4000/removeuser",
+        "https://fair-red-goshawk-gown.cyclic.app/removeuser",
         data
       );
       openHandler();

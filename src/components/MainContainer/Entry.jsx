@@ -7,9 +7,12 @@ export const Entry = ({ data, id }) => {
 
   async function fetchUser() {
     try {
-      const response = await axios.get("http://localhost:4000/getuser", {
-        params: { userId: data.userId },
-      });
+      const response = await axios.get(
+        "https://fair-red-goshawk-gown.cyclic.app/getuser",
+        {
+          params: { userId: data.userId },
+        }
+      );
       // console.log("data ID: ", data.userId);
       // console.log("response ID: ", response.data.userId);
 
